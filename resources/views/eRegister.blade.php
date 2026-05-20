@@ -300,6 +300,7 @@
                             <div class="card">
                             <form action="{{url('eInstitution')}}" method="post">
                                         @csrf
+                                        <input type="hidden" name="id" value="{{$intitution->id}}">
                                 <div class="card-body">
                                     <div class="live-preview">
                                         <div class="row gy-4">
@@ -326,7 +327,7 @@
                                              <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="labelInput" class="form-label">Montly Fee</label>
-                                                    <input type="text" name="instalation_fee" class="form-control" value="{{$intitution->monthly_payment->amount}}">
+                                                    <input type="text" name="monthly_payment" class="form-control" value="{{$intitution->monthly_payment_id}}">
                                                 </div>
                                             </div>
                                             <!--end col-->
@@ -420,7 +421,7 @@
                                                 <p class="text-truncate text-muted fs-14 mb-0"><i class="mdi mdi-circle align-middle text-success me-2"></i>Monthly Charge for Internet Service </p>
                                             </div>
                                             <div class="flex-shrink-0">
-                                                <p class="mb-0">Ksh {{$intitution->monthly_payment->amount}}</p>
+                                                <p class="mb-0">Ksh {{$intitution->monthly_payment_id}}</p>
                                             </div>
                                         </div><!-- end -->
                                          <div class="d-flex mb-2">

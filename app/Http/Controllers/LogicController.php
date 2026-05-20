@@ -93,19 +93,17 @@ class LogicController extends Controller
         return redirect('registered')->with('success','INSTITUTION REGISTERED SUCCESS');
         
     }
-     public function eInstitution(Request $request, $id){
-        $store = Institutionfind($id);
+     public function eInstitution(Request $request){
+        $store = Institution::find($request->id);
         $store->institution_name = $request->input('institution_name');
         $store->registration_fee = $request->input('registration_fee');
         $store->instalation_fee = $request->input('instalation_fee');
+      
         $store->monthly_payment_id = $request->input('monthly_payment');
         $store->monthlyPayment_id = $request->input('monthly_payment');
         $store->No_of_computers = $request->input('No_of_computers');
         $store->lan_nodes = $request->input('lan_nodes');
-        $store->fine = 0;
-        $store->reconnection_fee = 0;
-        $store->defaulters_status = 0;
-        $store->connection_status = 0;
+      
         $store->save();
         return redirect('registered')->with('success','INSTITUTION UPDATED SUCCESS');
         

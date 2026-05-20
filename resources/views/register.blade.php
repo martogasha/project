@@ -192,7 +192,7 @@
                                                     <label for="placeholderInput" class="form-label">Montly Payment</label>
                                              <select class="form-select mb-3" name="monthly_payment" aria-label="Default select example">
                                                 @foreach($monthlys as $monthly)
-                                                    <option value="{{$monthly->id}}">{{$monthly->name}} @ {{$monthly->amount}}</option>
+                                                    <option value="{{$monthly->amount}}">{{$monthly->name}} @ {{$monthly->amount}}</option>
                                                     
                                                     @endforeach
                                                 </select>
