@@ -110,11 +110,20 @@ class LogicController extends Controller
     }
      public function eInstitution(Request $request){
         $store = Institution::find($request->id);
+        $get = Institution::where('id',$request->id)->first();
         $store->institution_name = $request->input('institution_name');
         $store->registration_fee = $request->input('registration_fee');
         $store->instalation_fee = $request->input('instalation_fee');
       
         $store->monthly_payment_id = $request->input('monthly_payment');
+        
+        if($request->input('monthly_payment') > $get->monthly_payment_id){
+            $discount = $request->input('monthly_payment') * 0.1;
+            $store->discount = $discount;
+        }
+        else{
+            $store->discount = null;
+        }
         $store->monthlyPayment_id = $request->input('monthly_payment');
         $store->No_of_computers = $request->input('No_of_computers');
         $store->lan_nodes = $request->input('lan_nodes');

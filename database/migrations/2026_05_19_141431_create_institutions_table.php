@@ -24,6 +24,7 @@ class CreateInstitutionsTable extends Migration
             $table->integer('lan_nodes_amount');
             $table->integer('monthlyPayment_id');
             $table->integer('fine')->nullable();
+            $table->integer('discount')->nullable();
             $table->integer('reconnection_fee')->nullable();
             $table->integer('defaulters_status')->nullable();
             $table->integer('connection_status')->nullable();

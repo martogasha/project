@@ -176,14 +176,14 @@
                                              <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="basiInput" class="form-label">Registration Fee</label>
-                                                    <input type="text" name="registration_fee" class="form-control" id="basiInput">
+                                                    <input type="text" name="registration_fee" class="form-control" value="8500">
                                                 </div>
                                             </div>
                                             <!--end col-->
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="labelInput" class="form-label">Installation Fee</label>
-                                                    <input type="text" name="instalation_fee" class="form-control" id="labelInput">
+                                                    <input type="text" name="instalation_fee" class="form-control" value="10000">
                                                 </div>
                                             </div>
                                             <!--end col-->

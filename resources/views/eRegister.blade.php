@@ -473,7 +473,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-6">
                                             <h6 class="text-muted text-uppercase fw-semibold text-truncate fs-12 mb-3">Total Monthly Charge  </h6>
-                                            <h4 class="mb-0">Ksh {{$intitution->monthly_payment_id+$intitution->fine+$intitution->reconnection_fee}}</h4>
+                                            <h4 class="mb-0">Ksh {{$intitution->monthly_payment_id+$intitution->fine+$intitution->reconnection_fee-$intitution->discount}}</h4>
                                         </div><!-- end col -->
                                         <div class="col-6">
                                             <div class="text-center">
@@ -506,7 +506,11 @@
                                                 <p class="text-truncate text-muted fs-14 mb-0"><i class="mdi mdi-circle align-middle text-success me-2"></i>Discounted Price </p>
                                             </div>
                                             <div class="flex-shrink-0">
-                                                <p class="mb-0">N/A</p>
+                                                @if($intitution->discount===null)
+                                                <p class="mb-0">Ksh 0</p>
+                                                @else
+                                                <p class="mb-0">Ksh {{$intitution->discount}}</p>
+                                                @endif
                                             </div>
                                         </div><!-- end -->
                                         <div class="d-flex mb-2">

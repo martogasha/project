@@ -18,6 +18,7 @@ class Institution extends Model
         'lan_nodes_amount',
         'monthlyPayment_id',
         'fine',
+        'discount',
         'reconnection_fee',
         'defaulters_status',
         'connection_status',
