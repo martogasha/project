@@ -234,7 +234,7 @@
                                                         <td>{{$intitutions->institution_name}}</td>
                                                         <td>Ksh {{$intitutions->registration_fee}}</td>
                                                         <td>Ksh {{$intitutions->instalation_fee}}</td>
-                                                        <td>Ksh {{$intitutions->monthly_payment->amount}}</td>
+                                                        <td>Ksh {{$intitutions->monthly_payment_id}}</td>
                                                         <td>{{$intitutions->No_of_computers}}</td>
                                                         <td>{{$intitutions->lan_nodes}}</td>
                                                         <td>
