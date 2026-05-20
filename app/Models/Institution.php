@@ -15,6 +15,7 @@ class Institution extends Model
         'monthly_payment_id',
         'No_of_computers',
         'lan_nodes',
+        'lan_nodes_amount',
         'monthlyPayment_id',
         'fine',
         'reconnection_fee',

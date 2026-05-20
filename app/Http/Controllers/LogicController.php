@@ -88,6 +88,18 @@ class LogicController extends Controller
         $store->monthlyPayment_id = $request->input('monthly_payment');
         $store->No_of_computers = $request->input('No_of_computers');
         $store->lan_nodes = $request->input('lan_nodes');
+           if($request->input('lan_nodes') >=2 && $request->input('lan_nodes') <= 10){
+           $store->lan_nodes_amount = 10000; 
+        }
+        if($request->input('lan_nodes') >=11 && $request->input('lan_nodes') <= 20){
+           $store->lan_nodes_amount = 20000; 
+        }
+        if($request->input('lan_nodes') >=21 && $request->input('lan_nodes') <= 40){
+           $store->lan_nodes_amount = 30000; 
+        }
+        if($request->input('lan_nodes') >=41 && $request->input('lan_nodes') <= 100){
+           $store->lan_nodes_amount = 40000; 
+        }
      
         $store->save();
         return redirect('registered')->with('success','INSTITUTION REGISTERED SUCCESS');
@@ -103,6 +115,19 @@ class LogicController extends Controller
         $store->monthlyPayment_id = $request->input('monthly_payment');
         $store->No_of_computers = $request->input('No_of_computers');
         $store->lan_nodes = $request->input('lan_nodes');
+           if($request->input('lan_nodes') >=2 && $request->input('lan_nodes') <= 10){
+           $store->lan_nodes_amount = 10000; 
+        }
+        if($request->input('lan_nodes') >=11 && $request->input('lan_nodes') <= 20){
+           $store->lan_nodes_amount = 20000; 
+        }
+        if($request->input('lan_nodes') >=21 && $request->input('lan_nodes') <= 40){
+           $store->lan_nodes_amount = 30000; 
+        }
+        if($request->input('lan_nodes') >=41 && $request->input('lan_nodes') <= 100){
+           $store->lan_nodes_amount = 40000; 
+        }
+
       
         $store->save();
         return redirect('registered')->with('success','INSTITUTION UPDATED SUCCESS');

@@ -334,13 +334,13 @@
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="valueInput" class="form-label">No of Computers</label>
-                                                    <input type="text" name="No_of_computers" class="form-control" value="{{$intitution->No_of_computers}}">
+                                                    <input type="text" name="No_of_computers" class="form-control" value="{{$intitution->No_of_computers}}" required>
                                                 </div>
                                             </div>
                                             <div class="col-xxl-3 col-md-6">
                                                 <div>
                                                     <label for="valueInput" class="form-label">Local Area Network(LAN) Nodes</label>
-                                                    <input type="text" name="lan_nodes" class="form-control" value="{{$intitution->lan_nodes}}">
+                                                    <input type="text" name="lan_nodes" class="form-control" value="{{$intitution->lan_nodes}}" required>
                                                 </div>
                                             </div>
                                             
@@ -368,7 +368,7 @@
                         <div class="col-xl-4 col-md-6">
                             <div class="card card-height-100">
                                 <div class="card-header align-items-center d-flex">
-                                    <h4 class="card-title mb-0 flex-grow-1">Breakdown Cost for Installation</h4>
+                                    <h4 class="card-title mb-0 flex-grow-1">Cost of Installation</h4>
                                     <div class="flex-shrink-0">
                                         <button type="button" class="btn btn-soft-primary btn-sm">
                                             Export Report
@@ -381,7 +381,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-6">
                                             <h6 class="text-muted text-uppercase fw-semibold text-truncate fs-12 mb-3">Total Installation Cost  </h6>
-                                            <h4 class="mb-0">Ksh 725,800</h4>
+                                            <h4 class="mb-0">Ksh {{$intitution->registration_fee+$intitution->instalation_fee+$intitution->monthly_payment_id+$intitution->lan_nodes_amount+$intitution->No_of_computers*40000}}</h4>
                                         </div><!-- end col -->
                                         <div class="col-6">
                                             <div class="text-center">
@@ -424,6 +424,83 @@
                                                 <p class="mb-0">Ksh {{$intitution->monthly_payment_id}}</p>
                                             </div>
                                         </div><!-- end -->
+                                    
+                                   
+                                    
+                                          <div class="d-flex mb-2">
+                                            <div class="flex-grow-1">
+                                                <p class="text-truncate text-muted fs-14 mb-0"><i class="mdi mdi-circle align-middle text-warning me-2"></i>Personal Computer/s </p>
+                                            </div>
+                                            <div class="flex-shrink-0">
+                                                @if($intitution->No_of_computers===null)
+                                                <p class="mb-0">N/A</p>
+                                                @else
+                                                <p class="mb-0">Ksh {{$intitution->No_of_computers*40000}}</p>
+                                                @endif
+                                            </div>
+                                        </div><!-- end -->
+                                          <div class="d-flex mb-2">
+                                            <div class="flex-grow-1">
+                                                <p class="text-truncate text-muted fs-14 mb-0"><i class="mdi mdi-circle align-middle text-warning me-2"></i> Local Area Network(LAN) Nodes  </p>
+                                            </div>
+                                            <div class="flex-shrink-0">
+                                                <p class="mb-0">Ksh {{$intitution->lan_nodes_amount}}</p>
+                                            </div>
+                                        </div><!-- end -->
+                                    </div><!-- end -->
+
+                                    <div class="mt-2 text-center">
+                                        <a href="javascript:void(0);" class="text-muted text-decoration-underline">Show All</a>
+                                    </div>
+
+                                </div><!-- end card body -->
+                            </div><!-- end card -->
+                        </div><!-- end col -->
+
+                         <div class="col-xl-4 col-md-6">
+                            <div class="card card-height-100">
+                                <div class="card-header align-items-center d-flex">
+                                    <h4 class="card-title mb-0 flex-grow-1">Monthly Charges</h4>
+                                    <div class="flex-shrink-0">
+                                        <button type="button" class="btn btn-soft-primary btn-sm">
+                                            Export Report
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+
+                                    <div class="row align-items-center">
+                                        <div class="col-6">
+                                            <h6 class="text-muted text-uppercase fw-semibold text-truncate fs-12 mb-3">Total Monthly Charge  </h6>
+                                            <h4 class="mb-0">Ksh {{$intitution->monthly_payment_id}}</h4>
+                                        </div><!-- end col -->
+                                        <div class="col-6">
+                                            <div class="text-center">
+                                                <img src="assets/images/illustrator-1.png" class="img-fluid" alt="">
+                                            </div>
+                                        </div><!-- end col -->
+                                    </div><!-- end row -->
+                                    <div class="mt-3 pt-2">
+                                        <div class="progress progress-lg rounded-pill">
+                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: 18%" aria-valuenow="18" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 22%" aria-valuenow="22" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 16%" aria-valuenow="16" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 19%" aria-valuenow="19" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div><!-- end -->
+
+                                    <div class="mt-3 pt-2">
+                                     
+                                        <div class="d-flex mb-2">
+                                            <div class="flex-grow-1">
+                                                <p class="text-truncate text-muted fs-14 mb-0"><i class="mdi mdi-circle align-middle text-success me-2"></i>Monthly Charge for Internet Service </p>
+                                            </div>
+                                            <div class="flex-shrink-0">
+                                                <p class="mb-0">Ksh {{$intitution->monthly_payment_id}}</p>
+                                            </div>
+                                        </div><!-- end -->
                                          <div class="d-flex mb-2">
                                             <div class="flex-grow-1">
                                                 <p class="text-truncate text-muted fs-14 mb-0"><i class="mdi mdi-circle align-middle text-success me-2"></i>Discounted Price </p>
@@ -448,23 +525,7 @@
                                                 <p class="mb-0">N/A</p>
                                             </div>
                                         </div><!-- end -->
-                                        <br>
-                                          <div class="d-flex mb-2">
-                                            <div class="flex-grow-1">
-                                                <p class="text-truncate text-muted fs-14 mb-0"><i class="mdi mdi-circle align-middle text-warning me-2"></i>Personal Computer/s </p>
-                                            </div>
-                                            <div class="flex-shrink-0">
-                                                <p class="mb-0">N/A</p>
-                                            </div>
-                                        </div><!-- end -->
-                                          <div class="d-flex mb-2">
-                                            <div class="flex-grow-1">
-                                                <p class="text-truncate text-muted fs-14 mb-0"><i class="mdi mdi-circle align-middle text-warning me-2"></i> Local Area Network(LAN) Nodes  </p>
-                                            </div>
-                                            <div class="flex-shrink-0">
-                                                <p class="mb-0">N/A</p>
-                                            </div>
-                                        </div><!-- end -->
+                                     
                                     </div><!-- end -->
 
                                     <div class="mt-2 text-center">
