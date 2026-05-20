@@ -47,14 +47,14 @@ class LogicController extends Controller
     }
      public function connect($id){
         $intitutions = Institution::find($id);
-        $default = Institution::where('id',$id)->update(['connection_status'=>null]);
+        $default = Institution::where('id',$id)->update(['connection_status'=>null,'reconnection_fee'=>null,'fine'=>null]);
 
         return redirect()->back()->with('success','INSTITUTION CONNECTED SUCCESS');
 
     }
      public function removeConnect($id){
         $intitutions = Institution::find($id);
-        $default = Institution::where('id',$id)->update(['connection_status'=>0]);
+        $default = Institution::where('id',$id)->update(['connection_status'=>0,'reconnection_fee'=>1000,'fine'=>$intitutions->monthly_payment_id*0.15]);
 
         return redirect()->back()->with('success','INSTITUTION DISCONNECTED SUCCESS');
 
@@ -88,6 +88,9 @@ class LogicController extends Controller
         $store->monthlyPayment_id = $request->input('monthly_payment');
         $store->No_of_computers = $request->input('No_of_computers');
         $store->lan_nodes = $request->input('lan_nodes');
+           if($request->input('lan_nodes') <2){
+           $store->lan_nodes_amount = 0; 
+        }
            if($request->input('lan_nodes') >=2 && $request->input('lan_nodes') <= 10){
            $store->lan_nodes_amount = 10000; 
         }
@@ -115,6 +118,9 @@ class LogicController extends Controller
         $store->monthlyPayment_id = $request->input('monthly_payment');
         $store->No_of_computers = $request->input('No_of_computers');
         $store->lan_nodes = $request->input('lan_nodes');
+         if($request->input('lan_nodes') <2){
+           $store->lan_nodes_amount = 0; 
+        }
            if($request->input('lan_nodes') >=2 && $request->input('lan_nodes') <= 10){
            $store->lan_nodes_amount = 10000; 
         }

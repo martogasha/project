@@ -473,7 +473,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-6">
                                             <h6 class="text-muted text-uppercase fw-semibold text-truncate fs-12 mb-3">Total Monthly Charge  </h6>
-                                            <h4 class="mb-0">Ksh {{$intitution->monthly_payment_id}}</h4>
+                                            <h4 class="mb-0">Ksh {{$intitution->monthly_payment_id+$intitution->fine+$intitution->reconnection_fee}}</h4>
                                         </div><!-- end col -->
                                         <div class="col-6">
                                             <div class="text-center">
@@ -514,7 +514,11 @@
                                                 <p class="text-truncate text-muted fs-14 mb-0"><i class="mdi mdi-circle align-middle text-warning me-2"></i>Overdue Fines </p>
                                             </div>
                                             <div class="flex-shrink-0">
-                                                <p class="mb-0">N/A</p>
+                                                @if($intitution->fine===null)
+                                                <p class="mb-0">Ksh 0</p>
+                                                @else
+                                                <p class="mb-0">Ksh {{$intitution->fine}}</p>
+                                                @endif
                                             </div>
                                         </div><!-- end -->
                                         <div class="d-flex">
@@ -522,7 +526,11 @@
                                                 <p class="text-truncate text-muted fs-14 mb-0"><i class="mdi mdi-circle align-middle text-danger me-2"></i>Reconnection Fee </p>
                                             </div>
                                             <div class="flex-shrink-0">
-                                                <p class="mb-0">N/A</p>
+                                                @if($intitution->reconnection_fee===null)
+                                                <p class="mb-0">Ksh 0</p>
+                                                @else
+                                                <p class="mb-0">Ksh {{$intitution->reconnection_fee}}</p>
+                                                @endif
                                             </div>
                                         </div><!-- end -->
                                      
